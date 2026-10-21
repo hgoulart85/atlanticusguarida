@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlanticus Guarida — Imóveis no Pico</title>
+<meta name="description" content="Imóveis próprios na ilha do Pico, Açores: compra, reabilitação, arrendamento e venda. Moradias renovadas na Silveira, Lajes do Pico.">
+<link rel="canonical" href="https://atlanticusguarida.pt/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:title" content="Atlanticus Guarida — Imóveis no Pico">
+<meta property="og:description" content="Imóveis no Pico, descritos como são.">
+<meta property="og:url" content="https://atlanticusguarida.pt/">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#005B67">
+<style>
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url(fonts/source-sans-3-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url(fonts/source-sans-3-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url(fonts/source-sans-3-latin-700-normal.woff2) format('woff2')}
+:root{--pet:#005B67;--agua:#9BC7CF;--tinta:#1A1A1A;--nevoa:#EEF4F5;--linha:#C9DFE3}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Source Sans 3',Arial,Helvetica,sans-serif;color:var(--tinta);background:#fff;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3,p{margin:0} h1,h2,h3{text-wrap:balance} p{text-wrap:pretty}
+a{color:var(--pet)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pet);outline-offset:3px}
+.esc a:focus-visible{outline-color:#fff}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+@media (max-width:640px){.wrap{padding:0 20px}}
+.topo{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.93);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+.topo .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.topo img{height:52px;width:auto}
+.topo nav{display:flex;gap:28px;font-size:17px;font-weight:600}
+.topo nav a{color:var(--tinta);text-decoration:none} .topo nav a:hover{color:var(--pet);text-decoration:underline;text-underline-offset:5px}
+@media (max-width:640px){.topo nav{gap:16px;font-size:15px}.topo img{height:34px}}
+.abertura{padding-top:72px;padding-bottom:40px}
+.abertura h1{font-size:clamp(38px,5.4vw,76px);line-height:1.02;letter-spacing:-.03em;font-weight:700;color:var(--pet);max-width:14ch}
+.abertura p{margin-top:24px;font-size:clamp(19px,1.6vw,22px);max-width:32em}
+.hero{margin:0} .hero img{width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;max-height:620px}
+.sec{padding-top:112px;padding-bottom:112px}
+.h2{font-size:clamp(30px,3.4vw,46px);line-height:1.1;letter-spacing:-.02em;font-weight:700;color:var(--pet)}
+.intro{margin-top:16px;max-width:36em;font-size:19px}
+.imovel{margin-top:64px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:32px 56px;align-items:start;padding-top:48px;border-top:1px solid var(--linha)}
+.imovel:first-of-type{margin-top:56px}
+@media (max-width:900px){.imovel{grid-template-columns:1fr}}
+.galeria,.ficha{min-width:0}
+.palco{aspect-ratio:3/2;background:var(--nevoa);border-radius:2px;overflow:hidden}
+.palco picture{display:block;height:100%}
+.palco img{width:100%;height:100%;object-fit:contain}
+.tira{margin-top:10px;display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.th{flex:0 0 auto;width:84px;height:60px;padding:0;border:2px solid transparent;border-radius:2px;background:var(--nevoa);cursor:pointer;overflow:hidden;opacity:.75;transition:opacity .2s}
+.th img{width:100%;height:100%;object-fit:cover}
+.th:hover{opacity:1} .th.on{border-color:var(--pet);opacity:1}
+.estado{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;padding:4px 12px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid var(--pet);color:var(--pet)}
+.chip.cheio{background:var(--pet);color:#fff}
+.ficha h3{margin-top:16px;font-size:clamp(26px,2.4vw,32px);line-height:1.15;font-weight:700;color:var(--pet);letter-spacing:-.01em}
+.ficha .loc{margin-top:4px;font-size:17px}
+.preco{margin-top:18px;font-size:30px;font-weight:600;color:var(--pet);letter-spacing:-.01em}
+.dados{margin:20px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:16px;border-top:1px solid var(--linha);padding-top:16px}
+.dados dt{color:var(--tinta)} .dados dd{margin:0;font-weight:600}
+.ficha .desc{margin-top:20px;font-size:17px}
+.acoes{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--pet);color:#fff;text-decoration:none;font-weight:600;border-radius:2px}
+.btn:hover{background:#004650;color:#fff}
+.lk{font-weight:600;text-underline-offset:5px}
+.breve{font-size:16px;font-weight:600;color:var(--pet)}
+.nota{margin-top:16px;font-size:14px;line-height:1.5}
+.reab{background:var(--nevoa)}
+.pares{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 32px}
+@media (max-width:1000px){.pares{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.pares{grid-template-columns:1fr}}
+.par{margin:0}
+.grupo{margin-top:56px;font-size:22px;font-weight:700;color:var(--pet)}
+.pares{margin-top:24px}
+.lados{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.lados div{position:relative}
+.lados img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
+.tag{position:absolute;left:8px;bottom:8px;background:rgba(26,26,26,.78);color:#fff;font-size:13px;font-weight:600;padding:3px 9px;border-radius:2px}
+.tag.t2{background:var(--pet)}
+.par figcaption{margin-top:10px;font-size:16px;font-weight:600;color:var(--pet)}
+.fazemos{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px 72px}
+@media (max-width:860px){.fazemos{grid-template-columns:1fr}}
+.fazemos p+p{margin-top:18px}
+.esc{background:var(--pet);color:#fff}
+.contacto .wrap{padding-top:104px;padding-bottom:88px}
+.contacto .h2{color:#fff}
+.contacto .mail{display:inline-block;margin-top:28px;font-size:clamp(22px,2.4vw,30px);font-weight:600;color:#fff;text-underline-offset:7px}
+.contacto address{margin-top:32px;font-style:normal;font-size:16px}
+.rodape{border-top:1px solid rgba(155,199,207,.5)}
+.rodape .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px;padding-top:24px;padding-bottom:28px;font-size:14px}
+.rodape .ass{display:flex;align-items:center;gap:14px}
+.rodape .end{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+@keyframes subir{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){.rv{animation:subir linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<header class="topo"><div class="wrap">
+<a href="#topo" aria-label="Atlanticus Guarida, início"><img src="img/atlanticusguarida_horizontal_positivo.svg" alt="Atlanticus Guarida" width="136" height="42"></a>
+<nav aria-label="Principal"><a href="#imoveis">Imóveis</a><a href="#portefolio">Portefólio</a><a href="#reabilitacao">Reabilitação</a><a href="#contacto">Contacto</a></nav>
+</div></header>
+<main>
+<section id="topo" class="wrap abertura">
+<h1>Imóveis no Pico, descritos como são.</h1>
+<p>Não vendemos metros quadrados. Colocamos capital em ativos que resistem, e pessoas em espaços onde querem ficar.</p>
+</section>
+<figure class="hero"><picture><img src="img/hero.jpg" alt="Moradia de fachada branca com molduras verde-água na Silveira, com a encosta da ilha do Pico ao fundo" width="2000" height="857"></picture></figure>
+
+<section id="imoveis" class="wrap sec">
+<h2 class="h2">Imóveis à venda</h2>
+<p class="intro">Duas moradias na Silveira, Lajes do Pico, renovadas em 2025. Ambas estão arrendadas e são vendidas com o contrato de arrendamento em vigor.</p>
+
+<article class="imovel">
+<div class="galeria" data-g="t2">
+<div class="palco"><picture><img class="principal" src="img/t2-1.jpg" alt="Moradia T2 na Silveira, Lajes do Pico" loading="lazy" decoding="async"></picture></div>
+<div class="tira"><button type="button" class="th on" data-src="img/t2-1" aria-label="Fotografia 1 de 7" aria-current="true"><img src="img/t2-1-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t2-2" aria-label="Fotografia 2 de 7"><img src="img/t2-2-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t2-7" aria-label="Fotografia 3 de 7"><img src="img/t2-7-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t2-3" aria-label="Fotografia 4 de 7"><img src="img/t2-3-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t2-4" aria-label="Fotografia 5 de 7"><img src="img/t2-4-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t2-5" aria-label="Fotografia 6 de 7"><img src="img/t2-5-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t2-6" aria-label="Fotografia 7 de 7"><img src="img/t2-6-t.jpg" alt="" loading="lazy"></button></div>
+</div>
+<div class="ficha">
+<div class="estado"><span class="chip cheio">À venda</span><span class="chip">Arrendada</span></div>
+<h3>Moradia T2</h3>
+<p class="loc">Silveira, Lajes do Pico</p>
+<p class="preco">239.000 €</p>
+<dl class="dados">
+<dt>Área útil</dt><dd>85 m²</dd>
+<dt>Área bruta</dt><dd>209 m²</dd>
+<dt>Lote</dt><dd>716 m²</dd>
+<dt>Construção</dt><dd>1939, renovada em 2025</dd>
+<dt>Classe energética</dt><dd>C</dd>
+</dl>
+<p class="desc">Cozinha e sala em espaço aberto, dois quartos, uma casa de banho, arrecadação na cave, terraço e estacionamento privado. Inserida numa quinta com laranjeiras, tangerineiras, mangueiras, abacateiros e corações-negros, numa rua secundária e sossegada, a 3 km da vila e com a Montanha do Pico à vista.</p>
+<div class="acoes"><a class="btn" href="https://www.idealista.pt/imovel/34779373/" target="_blank" rel="noopener">Ver anúncio completo</a><a class="lk" href="mailto:geral@atlanticusguarida.pt?subject=Moradia%20T2%20na%20Silveira">Pedir informações</a></div>
+</div>
+</article>
+
+<article class="imovel">
+<div class="galeria" data-g="t1">
+<div class="palco"><picture><img class="principal" src="img/t1-1.jpg" alt="Moradia T1 na Silveira, Lajes do Pico" loading="lazy" decoding="async"></picture></div>
+<div class="tira"><button type="button" class="th on" data-src="img/t1-1" aria-label="Fotografia 1 de 8" aria-current="true"><img src="img/t1-1-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-2" aria-label="Fotografia 2 de 8"><img src="img/t1-2-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-8" aria-label="Fotografia 3 de 8"><img src="img/t1-8-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-3" aria-label="Fotografia 4 de 8"><img src="img/t1-3-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-4" aria-label="Fotografia 5 de 8"><img src="img/t1-4-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-5" aria-label="Fotografia 6 de 8"><img src="img/t1-5-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-6" aria-label="Fotografia 7 de 8"><img src="img/t1-6-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/t1-7" aria-label="Fotografia 8 de 8"><img src="img/t1-7-t.jpg" alt="" loading="lazy"></button></div>
+</div>
+<div class="ficha">
+<div class="estado"><span class="chip cheio">À venda</span><span class="chip">Arrendada</span></div>
+<h3>Moradia T1</h3>
+<p class="loc">Silveira, Lajes do Pico</p>
+<p class="preco">179.000 €</p>
+<dl class="dados">
+<dt>Área útil</dt><dd>70 m²</dd>
+<dt>Área bruta</dt><dd>84 m²</dd>
+<dt>Lote</dt><dd>860 m²</dd>
+<dt>Construção</dt><dd>Casa de pedra, renovada em 2025</dd>
+<dt>Classe energética</dt><dd>C</dd>
+</dl>
+<p class="desc">Casa tradicional de pedra em dois pisos, com as vigas de madeira à vista, cozinha equipada, quarto, casa de banho, alpendre coberto e estacionamento. Na mesma quinta de árvores de fruto, numa rua secundária e sossegada, com a Montanha do Pico à vista da janela.</p>
+<div class="acoes"><span class="breve">Anúncio brevemente</span><a class="lk" href="mailto:geral@atlanticusguarida.pt?subject=Moradia%20T1%20na%20Silveira">Pedir informações</a></div>
+</div>
+</article>
+<p class="nota">Os imóveis são propriedade da Atlanticus Guarida e são comercializados através de mediadora imobiliária licenciada.</p>
+</section>
+
+<section id="portefolio" class="wrap sec" style="padding-top:0">
+<h2 class="h2 rv">Portefólio</h2>
+<p class="intro rv">Imóveis arrendados, sob gestão da Atlanticus Guarida.</p>
+<article class="imovel">
+<div class="galeria" data-g="l">
+<div class="palco"><picture><img class="principal" src="img/l0.jpg" alt="Apartamento T2 no centro da vila das Lajes do Pico" loading="lazy" decoding="async"></picture></div>
+<div class="tira"><button type="button" class="th on" data-src="img/l0" aria-label="Fotografia 1 de 9" aria-current="true"><img src="img/l0-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l1" aria-label="Fotografia 2 de 9"><img src="img/l1-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l2" aria-label="Fotografia 3 de 9"><img src="img/l2-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l3" aria-label="Fotografia 4 de 9"><img src="img/l3-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l4" aria-label="Fotografia 5 de 9"><img src="img/l4-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l5" aria-label="Fotografia 6 de 9"><img src="img/l5-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l6" aria-label="Fotografia 7 de 9"><img src="img/l6-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l7" aria-label="Fotografia 8 de 9"><img src="img/l7-t.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-src="img/l8" aria-label="Fotografia 9 de 9"><img src="img/l8-t.jpg" alt="" loading="lazy"></button></div>
+</div>
+<div class="ficha">
+<div class="estado"><span class="chip cheio">Arrendado</span></div>
+<h3>T2</h3>
+<p class="loc">Centro da vila, Lajes do Pico</p>
+<dl class="dados">
+<dt>Área útil</dt><dd>90 m²</dd>
+<dt>Construção</dt><dd>2017</dd>
+<dt>Classe energética</dt><dd>B</dd>
+</dl>
+<p class="desc">Sala e cozinha em espaço aberto, dois quartos, casa de banho completa e ar condicionado, no centro da vila das Lajes do Pico.</p>
+</div>
+</article>
+</section>
+
+<section id="reabilitacao" class="reab">
+<div class="wrap sec">
+<h2 class="h2 rv">Reabilitação</h2>
+<p class="intro rv">Em dezembro de 2024, as duas moradias da Silveira estavam assim. Em 2025, foram renovadas por inteiro, por dentro e por fora.</p>
+<h3 class="grupo rv">Moradia T1 · Silveira</h3>
+<div class="pares">
+<figure class="par rv">
+<div class="lados">
+<div><picture><img src="img/antes-1.jpg" alt="Fachada para a rua, antes da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag">Antes · 2024</span></div>
+<div><picture><img src="img/depois-1.jpg" alt="Fachada para a rua, depois da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag t2">Depois · 2025</span></div>
+</div>
+<figcaption>Fachada para a rua</figcaption>
+</figure>
+<figure class="par rv">
+<div class="lados">
+<div><picture><img src="img/antes-3.jpg" alt="Cozinha, antes da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag">Antes · 2024</span></div>
+<div><picture><img src="img/depois-3.jpg" alt="Cozinha, depois da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag t2">Depois · 2025</span></div>
+</div>
+<figcaption>Cozinha</figcaption>
+</figure>
+<figure class="par rv">
+<div class="lados">
+<div><picture><img src="img/antes-4.jpg" alt="Casa de banho, antes da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag">Antes · 2024</span></div>
+<div><picture><img src="img/depois-4.jpg" alt="Casa de banho, depois da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag t2">Depois · 2025</span></div>
+</div>
+<figcaption>Casa de banho</figcaption>
+</figure>
+</div>
+<h3 class="grupo rv">Moradia T2 · Silveira</h3>
+<div class="pares">
+<figure class="par rv">
+<div class="lados">
+<div><picture><img src="img/antes-5.jpg" alt="Fachada, antes da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag">Antes · 2024</span></div>
+<div><picture><img src="img/depois-5.jpg" alt="Fachada, depois da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag t2">Depois · 2025</span></div>
+</div>
+<figcaption>Fachada</figcaption>
+</figure>
+<figure class="par rv">
+<div class="lados">
+<div><picture><img src="img/antes-6.jpg" alt="Entrada e logradouro, antes da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag">Antes · 2024</span></div>
+<div><picture><img src="img/depois-6.jpg" alt="Entrada e logradouro, depois da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag t2">Depois · 2025</span></div>
+</div>
+<figcaption>Entrada e logradouro</figcaption>
+</figure>
+<figure class="par rv">
+<div class="lados">
+<div><picture><img src="img/antes-7.jpg" alt="Cozinha, antes da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag">Antes · 2024</span></div>
+<div><picture><img src="img/depois-7.jpg" alt="Cozinha, depois da reabilitação" loading="lazy" width="1200" height="900"></picture><span class="tag t2">Depois · 2025</span></div>
+</div>
+<figcaption>Cozinha</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="wrap sec fazemos">
+<h2 class="h2 rv">O que fazemos</h2>
+<div class="rv">
+<p>Compramos, reabilitamos, arrendamos e gerimos imóveis próprios na ilha do Pico.</p>
+<p>Descrevemos cada imóvel como é, com as áreas, o estado e as condições à vista. É assim que se coloca capital em ativos que resistem, e pessoas em espaços onde querem ficar.</p>
+</div>
+</section>
+</main>
+
+<section id="contacto" class="esc contacto">
+<div class="wrap">
+<h2 class="h2">Contacto</h2>
+<a class="mail" href="mailto:geral@atlanticusguarida.pt">geral@atlanticusguarida.pt</a>
+<address>Rua Dr. Machado Serpa, 9 · 9930-146 Lajes do Pico · Açores</address>
+</div>
+<footer class="rodape"><div class="wrap">
+<div class="ass"><img src="img/atlanticusguarida_horizontal_negativo.svg" alt="Atlanticus Guarida" width="116" height="36"></div>
+<div class="end"><span>Uma marca do Grupo Ávila Goulart</span><img src="img/avilagoulart_horizontal_negativo.svg" alt="Grupo Ávila Goulart" width="84" height="21"><span>Ávila Goulart, Lda · NIPC 513484132</span></div>
+</div></footer>
+</section>
+<script>
+document.querySelectorAll('.galeria').forEach(function(g){
+  var img=g.querySelector('.principal');
+  g.querySelectorAll('.th').forEach(function(b){
+    b.addEventListener('click',function(){
+      var s=b.getAttribute('data-src');
+      img.src=s+'.jpg';
+      g.querySelectorAll('.th').forEach(function(x){x.classList.remove('on');x.removeAttribute('aria-current')});
+      b.classList.add('on'); b.setAttribute('aria-current','true');
+    });
+  });
+});
+</script>
+</body>
+</html>
