@@ -11,6 +11,10 @@
 <meta property="og:title" content="Atlanticus Guarida — Imóveis no Pico">
 <meta property="og:description" content="Imóveis no Pico, descritos como são.">
 <meta property="og:url" content="https://atlanticusguarida.pt/">
+<meta property="og:image" content="https://atlanticusguarida.pt/img/partilha.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#005B67">
 <style>
@@ -95,7 +99,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--pet);outline-offset
 @keyframes subir{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @supports (animation-timeline: view()){.rv{animation:subir linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{animation:none!important;opacity:1!important;transform:none!important}}
+.legal{padding-bottom:28px;font-size:13px;line-height:1.6;color:#fff}
+.legal p{margin:0}
+.legal p+p{margin-top:6px}
+.legal a{color:#fff;text-underline-offset:3px}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Atlanticus Guarida", "url": "https://atlanticusguarida.pt/", "image": "https://atlanticusguarida.pt/img/partilha.jpg", "description": "Imóveis próprios na ilha do Pico: compra, reabilitação, arrendamento e venda.", "email": "geral@atlanticusguarida.pt", "address": {"@type": "PostalAddress", "streetAddress": "Rua Dr. Machado Serpa, 9", "postalCode": "9930-146", "addressLocality": "Lajes do Pico", "addressRegion": "Açores", "addressCountry": "PT"}, "parentOrganization": {"@type": "Organization", "name": "Ávila Goulart, Unipessoal Lda", "url": "https://avilagoulart.pt/"}}</script>
 </head>
 <body>
 <header class="topo"><div class="wrap">
@@ -252,8 +261,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--pet);outline-offset
 </div>
 <footer class="rodape"><div class="wrap">
 <div class="ass"><img src="img/atlanticusguarida_horizontal_negativo.svg" alt="Atlanticus Guarida" width="116" height="36"></div>
-<div class="end"><span>Uma marca do Grupo Ávila Goulart</span><img src="img/avilagoulart_horizontal_negativo.svg" alt="Grupo Ávila Goulart" width="84" height="21"><span>Ávila Goulart, Lda · NIPC 513484132</span></div>
-</div></footer>
+<div class="end"><span>Uma marca do Grupo Ávila Goulart</span><img src="img/avilagoulart_horizontal_negativo.svg" alt="Grupo Ávila Goulart" width="84" height="21"></div>
+</div><div class="wrap legal"><p>ÁVILA GOULART, UNIPESSOAL LDA · Sede: Rua Dr. Machado Serpa, n.º 9, 9930-146 Lajes do Pico · Capital social: 5.000,00 € · NIPC e matrícula na Conservatória do Registo Comercial: 513484132</p><p><a href="privacidade.html">Política de privacidade</a> · <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener">Livro de Reclamações Eletrónico</a> · Resolução alternativa de litígios: <a href="https://www.consumidor.gov.pt/" target="_blank" rel="noopener">Portal do Consumidor</a></p></div>
+</footer>
 </section>
 <script>
 document.querySelectorAll('.galeria').forEach(function(g){
