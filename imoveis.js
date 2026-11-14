@@ -32,7 +32,7 @@ var AG = (function(){
     g+='</div></div>';
     var h=opts.nivel||'h3';
     var f='<div class="ficha"><div class="estado">'+im.estado.map(function(e,k){return '<span class="chip'+(k===0?' cheio':'')+'">'+e+'</span>';}).join('')+'</div>'+
-      '<'+h+'>'+im.titulo+'</'+h+'><p class="loc">'+im.local+'</p>'+(im.preco?'<p class="preco">'+im.preco+'</p>':'')+'<dl class="dados">'+
+      '<'+h+(h==='h1'?' data-escrever="300"':'')+'>'+im.titulo+'</'+h+'><p class="loc">'+im.local+'</p>'+(im.preco?'<p class="preco">'+im.preco+'</p>':'')+'<dl class="dados">'+
       im.dados.map(function(d){return '<dt>'+d[0]+'</dt><dd>'+d[1]+'</dd>';}).join('')+'</dl><p class="desc">'+im.desc+'</p>';
     var pag = im.pagina && !opts.paginaPropria ? '<a class="lk-pagina" href="'+B+im.pagina+'/">Ver a página da moradia</a>' : '';
     if(!venda){ /* em arrendamento: sem contactos */ }
