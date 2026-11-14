@@ -110,6 +110,45 @@ var AG = (function(){
     }
   }
 
+  /* menu: "Imóveis" passa a submenu com uma entrada por casa com página própria */
+  function resumo(im){ return im.local.split(',')[0]+', '+im.estado[0].toLowerCase()+(im.preco?', '+im.preco:''); }
+  function navImoveis(atualId){
+    var casas=IMOVEIS.filter(function(i){return i.visivel && i.pagina && (i.lista||'venda')==='venda';});
+    if(!casas.length) return;
+    var todos=(B?B:'')+'#imoveis';
+    var nav=document.querySelector('.nav'), lk=nav && nav.querySelector('a[href$="#imoveis"]');
+    if(lk){
+      var d=el('details','sub'), h='<summary class="nl">Imóveis</summary><div class="subm">';
+      casas.forEach(function(im){ h+='<a href="'+B+im.pagina+'/"'+(im.id===atualId?' aria-current="page"':'')+'><b>'+im.titulo+'</b><span>'+resumo(im)+'</span></a>'; });
+      h+='<a class="todos" href="'+todos+'"><b>Todos os imóveis</b><span>Incluindo os que estão em arrendamento</span></a></div>';
+      d.innerHTML=h; lk.parentNode.replaceChild(d,lk);
+      [].forEach.call(d.querySelectorAll('a'),function(a){a.addEventListener('click',function(){d.removeAttribute('open');});});
+      document.addEventListener('click',function(e){ if(d.open && !d.contains(e.target)) d.removeAttribute('open'); });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape' && d.open){ d.removeAttribute('open'); d.querySelector('summary').focus(); } });
+    }
+    var mm=document.querySelector('.menu nav'), ml=mm && mm.querySelector('a[href$="#imoveis"]');
+    if(ml){
+      ml.textContent='Todos os imóveis';
+      var g=el('p','m-grupo','Imóveis'); mm.insertBefore(g,ml);
+      casas.forEach(function(im){ var a=el('a','m-sub',im.titulo+', '+im.local.split(',')[0]); a.href=B+im.pagina+'/'; if(im.id===atualId) a.setAttribute('aria-current','page'); mm.insertBefore(a,ml); });
+      ml.className='m-sub';
+    }
+  }
+
+  /* "Outras casas" no fim da página de cada casa */
+  function outras(atualId,sec){
+    if(!sec) return;
+    var casas=IMOVEIS.filter(function(i){return i.visivel && i.pagina && i.id!==atualId && (i.lista||'venda')==='venda';});
+    if(!casas.length) return;
+    var grade=sec.querySelector('.outras');
+    casas.forEach(function(im){
+      var a=el('a','cartao rv'); a.href=B+im.pagina+'/';
+      a.innerHTML='<div class="cfoto">'+pic(im.fotos[0],'')+'</div><div class="estado">'+im.estado.map(function(e,k){return '<span class="chip'+(k===0?' cheio':'')+'">'+e+'</span>';}).join('')+'</div><h3>'+im.titulo+'</h3><p class="loc">'+im.local+'</p>'+(im.preco?'<p class="cpreco">'+im.preco+'</p>':'');
+      grade.appendChild(a);
+    });
+    sec.hidden=false;
+  }
+
   function menu(){
     var m=document.querySelector('.menu'); if(!m) return;
     [].forEach.call(m.querySelectorAll('a'),function(x){x.addEventListener('click',function(){m.removeAttribute('open');});});
@@ -121,5 +160,5 @@ var AG = (function(){
     var io=new IntersectionObserver(function(ent){ ent.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('ver'); io.unobserve(x.target); } }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
     rvs.forEach(function(r){ if(r.getBoundingClientRect().top<window.innerHeight) r.classList.add('ver'); else io.observe(r); });
   }
-  return {ficha:ficha,galeria:galeria,comparador:comparador,menu:menu,revelar:revelar,emVigor:emVigor,dataPT:dataPT,canais:canais,nomeCompleto:nomeCompleto};
+  return {navImoveis:navImoveis,outras:outras,ficha:ficha,galeria:galeria,comparador:comparador,menu:menu,revelar:revelar,emVigor:emVigor,dataPT:dataPT,canais:canais,nomeCompleto:nomeCompleto};
 })();

@@ -67,6 +67,10 @@
 <h2 class="h2 rv">Onde fica</h2>
 <p class="rv">Na Silveira, a 3 km da vila das Lajes do Pico, na mesma quinta de árvores de fruto da moradia T2, numa rua secundária e sossegada, com a Montanha do Pico à vista. A morada exata é indicada a quem marcar uma visita.</p>
 </section>
+<section id="outras" class="wrap outras-sec" hidden>
+<h2 class="h2 rv">Outras casas</h2>
+<div class="outras"></div>
+</section>
 </main>
 
 <section id="contacto" class="esc contacto">
@@ -102,6 +106,7 @@
       ct.innerHTML='<p class="lead-c">Respondemos pessoalmente, por email ou por WhatsApp, e combinamos uma visita.</p>'+AG.canais(im);
     }
   }
+  AG.navImoveis(window.AG_ID); AG.outras(window.AG_ID,document.getElementById('outras'));
   AG.menu(); AG.revelar();
 })();
 </script>

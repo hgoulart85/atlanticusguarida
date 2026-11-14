@@ -118,6 +118,7 @@
   var nota=document.getElementById('nota-contacto');
   if(exs.length){ nota.textContent='Pedidos sobre a '+exs.map(function(i){return i.titulo;}).join(' e a ')+' seguem para a '+exs[0].exclusivo.mediadora+', que a comercializa em exclusivo.'; } else { nota.parentNode.removeChild(nota); }
   AG.comparador(document.getElementById('transformacao'),PARES);
+  AG.navImoveis(null);
   AG.menu(); AG.revelar();
 })();
 </script>
