@@ -24,10 +24,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .nav{display:flex;align-items:center;gap:32px;font-size:17px;font-weight:500}
 .nl{color:var(--tinta);text-decoration:none;background:linear-gradient(var(--tur),var(--tur)) 0 100%/0 2px no-repeat;transition:background-size .3s ease;padding-bottom:3px}
 .nl:hover{background-size:100% 2px;color:var(--tinta)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:var(--bas);color:#fff;text-decoration:none;font-weight:600;font-size:18px;border-radius:2px;border:0;cursor:pointer;font-family:inherit;transition:background-color .25s ease,transform .25s ease}
-.btn:hover{background:var(--bas2);color:#fff;transform:translateY(-2px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:var(--bas);color:#fff;text-decoration:none;font-weight:600;font-size:18px;border-radius:2px;border:0;cursor:pointer;font-family:inherit;transition:background-color .25s ease,color .25s ease,transform .25s ease}
+.btn:hover,.btn:focus-visible{background:var(--tur);color:var(--bas);transform:translateY(-2px)}
 .btn-s{min-height:44px;padding:0 20px;font-size:16px}
-.btn-b{background:#fff;color:var(--bas)}.btn-b:hover{background:var(--nevoa);color:var(--bas)}
+.btn-b{background:#fff;color:var(--bas)}.btn-b:hover,.btn-b:focus-visible{background:var(--tur);color:var(--bas)}
 .lk{font-weight:600;color:var(--bas);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
 .menu{display:none;position:relative}
 .menu summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;color:var(--bas);padding:0 4px}
@@ -125,7 +125,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .ecra.antes .selo{background:rgba(26,26,26,.8)}
 .alternar{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
 .seg{display:inline-flex;border:1px solid var(--bas);border-radius:2px;overflow:hidden}
-.seg button{font:inherit;font-size:16px;font-weight:600;min-height:44px;padding:0 20px;border:0;background:#fff;color:var(--bas);cursor:pointer}
+.seg button{font:inherit;font-size:16px;font-weight:600;min-height:44px;padding:0 20px;border:0;background:#fff;color:var(--bas);cursor:pointer;transition:background-color .25s ease,color .25s ease}
+.seg button[aria-pressed="false"]:hover,.seg button[aria-pressed="false"]:focus-visible{background:var(--tur);color:var(--bas)}
 .seg button[aria-pressed="true"]{background:var(--bas);color:#fff}
 .comparar figcaption{font-size:17px;font-weight:500}
 
@@ -242,6 +243,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .cursor{display:inline-block;width:.06em;min-width:3px;height:.82em;margin-left:.03em;background:var(--tur);vertical-align:-.04em;animation:piscar 1s steps(1) infinite}
 .cursor.fim{opacity:0;transition:opacity .5s ease;animation:none}
 @keyframes piscar{50%{opacity:0}}
+.a-escrever{pointer-events:none;user-select:none;-webkit-user-select:none}
+.cursor{margin-right:-.09em!important}
+
 .js.escreve-titulo .abertura .d3{animation-delay:1.7s}
 .js.escreve-titulo [data-escrever]:not([data-feito]){visibility:hidden}
 
