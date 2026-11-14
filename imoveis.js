@@ -7,7 +7,7 @@ var AG = (function(){
   function emVigor(ex){ if(!ex) return false; return new Date()<=new Date(ex.ate+'T23:59:59'); }
   function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
   function src(f,ext){ return B+'img/'+f+'.'+ext; }
-  function pic(f,alt,extra){return '<picture'+(extra||'')+'><source srcset="'+src(f,'webp')+'" type="image/webp"><img src="'+src(f,'jpg')+'" alt="'+alt+'" loading="lazy" decoding="async"></picture>';}
+  function pic(f,alt,extra){return '<picture'+(extra||'')+'><img src="'+src(f,'webp')+'" alt="'+alt+'" loading="lazy" decoding="async"></picture>';}
   var seta='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
   var icWa='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.7 16.9L2.4 21.6l4.8-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1l-.5-.3z"/></svg>';
   var icMail='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 7l8.2 6 8.2-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
@@ -28,7 +28,7 @@ var AG = (function(){
     var g='<div class="galeria"><div class="palco" tabindex="0" role="region" aria-roledescription="galeria" aria-label="Fotografias da '+im.titulo+' (use as setas do teclado)">'+pic(im.fotos[0],alt+', fotografia 1 de '+n,' class="atual"')+
       '<button type="button" class="seta ant" aria-label="Fotografia anterior">'+seta+'</button><button type="button" class="seta prox" aria-label="Fotografia seguinte"><span style="display:grid;transform:scaleX(-1)">'+seta+'</span></button>'+
       '<span class="conta" aria-live="polite">1 / '+n+'</span></div><div class="tira">';
-    im.fotos.forEach(function(f,k){ g+='<button type="button" class="th" data-k="'+k+'" aria-label="Fotografia '+(k+1)+' de '+n+'"'+(k===0?' aria-current="true"':'')+'><picture><source srcset="'+src(f+'-t','webp')+'" type="image/webp"><img src="'+src(f+'-t','jpg')+'" alt="" loading="lazy"></picture></button>'; });
+    im.fotos.forEach(function(f,k){ g+='<button type="button" class="th" data-k="'+k+'" aria-label="Fotografia '+(k+1)+' de '+n+'"'+(k===0?' aria-current="true"':'')+'><picture><img src="'+src(f+'-t','webp')+'" alt="" loading="lazy"></picture></button>'; });
     g+='</div></div>';
     var h=opts.nivel||'h3';
     var f='<div class="ficha"><div class="estado">'+im.estado.map(function(e,k){return '<span class="chip'+(k===0?' cheio':'')+'">'+e+'</span>';}).join('')+'</div>'+
@@ -95,7 +95,7 @@ var AG = (function(){
       if(k===atualP) return; atualP=k; var p=pares[k];
       botoes.forEach(function(b,i){ b.setAttribute('aria-pressed',i===k?'true':'false'); });
       ecra.classList.add('troca');
-      [['.antes-img',p[3]],['.depois',p[4]]].forEach(function(s){ var pc=ecra.querySelector(s[0]); pc.querySelector('source').srcset=src(s[1],'webp'); pc.querySelector('img').src=src(s[1],'jpg'); });
+      [['.antes-img',p[3]],['.depois',p[4]]].forEach(function(s){ var pc=ecra.querySelector(s[0]); pc.querySelector('img').src=src(s[1],'webp'); });
       leg.textContent=p[1]+', '+p[2].toLowerCase();
       if(demo && !calma){ momento(false); void ecra.offsetWidth; ecra.classList.remove('troca'); setTimeout(function(){ if(atualP===k) momento(true); },900); }
       else { momento(true); void ecra.offsetWidth; ecra.classList.remove('troca'); }

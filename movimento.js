@@ -91,7 +91,17 @@
     ss.forEach(function(s){ if (s.getBoundingClientRect().top < window.innerHeight*0.85) s.classList.add('ver'); else io.observe(s); });
   }
 
-  function tudo(){ prepararEscrita(); prepararTitulos(); prepararSublinhados(); }
+  /* rede de segurança: se o observador falhar, revela ao percorrer a página */
+  var pend = false;
+  function verificar(){
+    pend = false;
+    [].slice.call(document.querySelectorAll('.h2.traco:not(.ver), .sub-din:not(.ver)')).forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight*0.85) el.classList.add('ver');
+    });
+  }
+  window.addEventListener('scroll', function(){ if (!pend) { pend = true; setTimeout(verificar, 60); } }, {passive:true});
+  function tudo(){ prepararEscrita(); prepararTitulos(); prepararSublinhados(); verificar(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tudo); else tudo();
   /* as fichas são geradas pelo imoveis.js: voltar a passar depois de carregar */
   window.addEventListener('load', function(){ setTimeout(tudo, 50); });
