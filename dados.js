@@ -13,6 +13,9 @@
      passa a dizer que a casa já não está disponível.
    - ATENÇÃO: se mudar o preço, mude-o também na descrição de partilha
      (linha og:description) da página própria da casa.
+   - ATENÇÃO: as fichas em texto simples (blocos "estatico" no HTML, lidos
+     pelos motores de busca e pelas IA) e o llms.txt não se atualizam sozinhos.
+     Depois de mudar preços ou dados, peça ao Claude para os regenerar.
    ========================================================================== */
 var IMOVEIS = [
   {
